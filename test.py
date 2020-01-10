@@ -21,7 +21,8 @@ while True:
    else:
     print('héééééé zé party')
     while True:
-        try:#ici on a une boucle infinie si le capteur capte pas de mouvement du coup le moteur tournera en continue dans les 2 sens
+        try:#ici on a une boucle infinie si le capteur ne capte pas de mouvement du coup le moteur tournera en continue dans les 2 sens
+            print("dans un sens")
             GPIO.output(17, True)#permet de faire tourner dans un sens
             GPIO.output(18, False)
             time.sleep(2)
@@ -34,7 +35,7 @@ while True:
             Print('on arrete tout')
             GPIO.output(17, False)
             GPIO.output(18, False)
-            break #Stop la boucle infini
+            break #Stop la boucle infinie
             GPIO.cleanup() #permet de re-initialiser les ports
 
 

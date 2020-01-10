@@ -13,15 +13,15 @@ print ("Demarrage du capteur")
 time.sleep(2) #la fonction sleep() permet de créer un "delay" avant la suite du code soit 2 secondes ici
 print ("Capteur pret a detecte un mouvement")
 while True:
-   if GPIO.input(7):
+   if GPIO.input(7): #ici si le apteur capte du mouvement ca lance le code
       print("arret des roues")
       GPIO.output(17, False) #on arrete les roues
       GPIO.output(18, False)#on arrete les roues
       time.sleep(2)
-else:
+   else:
     print('héééééé zé party')
     while True:
-        try:
+        try:#ici on a une boucle infinie si le capteur capte pas de mouvement du coup le moteur tournera en continue dans les 2 sens
             GPIO.output(17, True)#permet de faire tourner dans un sens
             GPIO.output(18, False)
             time.sleep(2)
@@ -29,11 +29,12 @@ else:
             GPIO.output(17, False)#permet de faire tourner dans l'autre sens
             GPIO.output(18, True)
             time.sleep(2)
+            
         except(KeyboardInterrupt): #ici cette commande permet de faire une exception au programme seulement si "controle-c" est pressé
             Print('on arrete tout')
             GPIO.output(17, False)
             GPIO.output(18, False)
-            break #Stop le while True
+            break #Stop la boucle infini
             GPIO.cleanup() #permet de re-initialiser les ports
 
 
